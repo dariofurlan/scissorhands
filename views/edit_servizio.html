@@ -1,0 +1,12 @@
+<h2>Modifica Servizio</h2>
+<form action="edit_servizio.php?id=%ID%" method="POST">
+    <input type="hidden" name="_id" value="%ID%" />
+    <input type="text" name="name" value="%NOME%" />
+    <input type="number" min="1" max="240" step="1" name="duration" value="%DURATA%" />
+    <input type="text" name="price" value="%PREZZO%" />
+    <input type="text" name="description" value="%DESCRIZIONE%" />
+    <input type="submit" value="Salva" />
+</form>
+<script>
+    new RegExp(/^[0-9]{1,5}(,[0-9]{1,2})?$/);
+</script>

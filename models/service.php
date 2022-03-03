@@ -3,14 +3,30 @@ require_once __DIR__ . "/helper.php";
 
 class Service extends DBHelper {
 
-    public function create($name, $price, $duration, $desc) {
-        $stmt = $this->prepare("INSERT INTO service (company, name, price, duration, description) values (1, ?, ?, ?, ?)");
-        $stmt->bind_param("sdis", $name, $price, $duration, $desc);
+    public function create($type, $name, $price, $duration, $desc) {
+        $stmt = $this->prepare("INSERT INTO service (company, type, name, price, duration, description) values (1, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssdis", $type, $name, $price, $duration, $desc);
         $stmt->execute();
     }
 
+    public function createCapelli($name, $price, $duration, $desc) {
+        static::create('capelli', $name, $price, $duration, $desc);
+    }
+
+    public function createBarba($name, $price, $duration, $desc) {
+        static::create('barba', $name, $price, $duration, $desc);
+    }
+
     public function getAll() {
-        $stmt = $this->prepare("SELECT * FROM service WHERE company = 1");
+        $stmt = $this->prepare("SELECT * FROM service WHERE company = 1 ORDER BY _id DESC");
+        $stmt->execute();
+        $res = $stmt->get_result();
+        return $res->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllByType($type) {
+        $stmt = $this->prepare("SELECT * FROM service WHERE company = 1 AND type = ? ORDER BY _id DESC");
+        $stmt->bind_param("s", $type);
         $stmt->execute();
         $res = $stmt->get_result();
         return $res->fetch_all(MYSQLI_ASSOC);
@@ -25,12 +41,13 @@ class Service extends DBHelper {
     }
 
     public function update($id, $name, $price, $duration, $desc) {
-        $stmt = $this->prepare("UPDATE service SET name=?, price = ?, duration = ?, desc = ? WHERE _id = ?");
+        $stmt = $this->prepare("UPDATE service SET name=?, price = ?, duration = ?, description = ? WHERE _id = ?");
         
-        $stmt->bind_param("sdis", $name, $price, $duration, $desc);
+        $stmt->bind_param("sdisi", $name, $price, $duration, $desc, $id);
 
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
+        if (!$stmt->execute()){
+            echo "Error: ". $stmt->error;
+        };
     }
 
     public function delete($id) {

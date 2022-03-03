@@ -3,8 +3,12 @@
 require_once __DIR__.'/../../models/service.php';
 
 class StaffServiceService {
-    public static function create($name, $price, $duration, $desc) {
-        return (new Service())->create($name, $price, $duration, $desc);
+    public static function createCapelli($name, $price, $duration, $desc) {
+        return (new Service())->createCapelli($name, $price, $duration, $desc);
+    }
+
+    public static function createBarba($name, $price, $duration, $desc) {
+        return (new Service())->createBarba($name, $price, $duration, $desc);
     }
 
     public static function getAll() {
