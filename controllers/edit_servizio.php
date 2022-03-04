@@ -7,7 +7,7 @@ require_once '../services/staff/service.php';
 
 $pagina = page('Modifica Servizio - Scissorhands');
 
-$meta_index = _meta_index(true);
+$meta_index = _meta_index(false);
 $pagina = str_replace('%META_INDEX%', $meta_index, $pagina);
 
 $paths = array(
@@ -70,9 +70,6 @@ $main = str_replace('%PREZZO%', number_format($service["price"], 2, ",", " "), $
 $main = str_replace('%DURATA%', floor($service["duration"] / 60), $main);
 $main = str_replace('%DESCRIZIONE%', $service["description"], $main);
 
-
-$pagina = str_replace('%DESCRIPTION%', "Eseguiamo servizi su capelli e barbe, usando forbici, macchinetta o lama a mano libera, per garantirti il risultato migliore." ,$pagina);
-$pagina = str_replace('%KEYWORDS%', "servizi, capelli, barba, forbici, lama a mano libera, macchinetta, anallergici, ecosostenibili, scissorhands, barbiere",$pagina);
 $pagina = str_replace('%HEADER%', $header, $pagina);
 $pagina = str_replace('%MAIN%', $main, $pagina);
 

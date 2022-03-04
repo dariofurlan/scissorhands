@@ -8,7 +8,7 @@ require_once 'components/meta_index.php';
 
 $pagina = page('Listino barba - Scissorhands');
 
-$meta_index = _meta_index(true);
+$meta_index = _meta_index(false);
 $pagina = str_replace('%META_INDEX%', $meta_index, $pagina);
 
 $path = array(
@@ -37,8 +37,6 @@ foreach($services as $service) {
 
 $main = str_replace('%LISTA_SERVIZI%' , $listaServizi, $main);
 
-$pagina = str_replace('%DESCRIPTION%', "Listino prezzi dei servizi per la barba di Scissorhands." ,$pagina);
-$pagina = str_replace('%KEYWORDS%', "listino, prezzi, servizi, barba, rasatura, modellatura, regolazione barba, trattamenti, barbiere, scissorhands", $pagina);
 $pagina = str_replace('%HEADER%', $header, $pagina);
 $pagina = str_replace('%MAIN%', $main, $pagina);
 
