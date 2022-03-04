@@ -379,7 +379,8 @@ div.form-block em>span#reg-complete
 
 form#registrazione-form, 
 form#login-form, 
-form#profile { 
+form#profile,
+form#servizio-form { 
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
@@ -394,7 +395,8 @@ fieldset#modifica-ora>label{
 fieldset.dati-cambio-password,
 fieldset.dati-personali, 
 fieldset.dati-login,
-fieldset.dati-registrazione {
+fieldset.dati-registrazione,
+fieldset.dati-servizio {
     display: flex;
     flex-direction: column;
     border-radius: 0.37em;
@@ -403,7 +405,8 @@ fieldset.dati-registrazione {
 fieldset.dati-cambio-password>span,
 fieldset.dati-personali>span, 
 fieldset.dati-registrazione>span,
-fieldset.dati-login>span { 
+fieldset.dati-login>span,
+fieldset.dati-servizio>span { 
     flex: 1 1;
     display: flex;
     flex-direction: column;
@@ -415,7 +418,8 @@ fieldset.dati-personali>span>label,
 fieldset.dati-personali>span>span>label,
 fieldset.dati-registrazione>span>label,
 fieldset.dati-registrazione>span>span>label,
-fieldset.dati-login>span>label {  
+fieldset.dati-login>span>label
+fieldset.dati-servizio>span>label {  
     font-weight: bold;
 }
 
@@ -435,7 +439,8 @@ fieldset.dati-login>span>input,
 fieldset.dati-registrazione>span>input, 
 fieldset.dati-registrazione>div>input, 
 fieldset.dati-personali>span>input, 
-fieldset.dati-personali>span>span>select {
+fieldset.dati-personali>span>span>select,
+fieldset.dati-servizio span input{
     max-width: 18.75em;
     min-width: 12.5em;
     margin-left: 0.5em;
@@ -444,6 +449,10 @@ fieldset.dati-personali>span>span>select {
     border: 0.125em solid #ccc;
     padding: 0.37em 0.5em;
     font-size: 1em;
+    letter-spacing: 0.12em;
+    line-height: 1.5em;
+    word-spacing: 0.16em;
+    font-family: AtkinsonHyperlegible, Helvetica, Arial, sans-serif;
 }
 
 fieldset#modifica-ora span.error,
@@ -469,6 +478,21 @@ fieldset.dati-cambio-password div.error{
 	border-radius: 0.4em;
     max-width: 15em;
 
+}
+
+textarea{
+    max-width: 18.75em;
+    min-width: 12.5em;
+    margin-left: 0.5em;
+    margin-top: 0.25em;
+    border-radius: 0.4em;
+    border: 0.125em solid #ccc;
+    padding: 0.37em 0.5em;
+    font-size: 1em;
+    letter-spacing: 0.12em;
+    line-height: 1.5em;
+    word-spacing: 0.16em;
+    font-family: AtkinsonHyperlegible, Helvetica, Arial, sans-serif;
 }
 
 input[type=submit]{ 

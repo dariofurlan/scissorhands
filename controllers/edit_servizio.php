@@ -5,14 +5,14 @@ require_once 'components/meta_index.php';
 require_once '../services/public/service.php';
 require_once '../services/staff/service.php';
 
-$pagina = page('Modifica Servizio - Scissorhands');
+$pagina = page('Modifica servizio - Scissorhands');
 
 $meta_index = _meta_index(false);
 $pagina = str_replace('%META_INDEX%', $meta_index, $pagina);
 
 $paths = array(
-    "Modifica Servizi" => "edit_servizi.php",
-    "Modifica Servizio" => "edit_servizio.php"
+    "Modifica servizi" => "edit_servizi.php",
+    "Modifica servizio" => "edit_servizio.php"
 );
 $header = _header($paths);
 

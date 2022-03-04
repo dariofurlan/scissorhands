@@ -1,12 +1,31 @@
-<h2>Modifica Servizio</h2>
-<form action="edit_servizio.php?id=%ID%" method="POST">
-    <input type="hidden" name="_id" value="%ID%" />
-    <input type="text" name="name" value="%NOME%" />
-    <input type="number" min="1" max="240" step="1" name="duration" value="%DURATA%" />
-    <input type="text" name="price" value="%PREZZO%" />
-    <input type="text" name="description" value="%DESCRIZIONE%" />
-    <input type="submit" value="Salva" />
-</form>
+<h2>Modifica servizio</h2>
+<div class="form-block">
+    <form id="servizio-form" action="edit_servizio.php?id=%ID%" method="POST">
+        <fieldset class="dati-servizio">
+            <legend>Dati sul servizio:</legend>
+                <input type="hidden" name="_id" value="%ID%" />
+            <span>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" value="%NOME%" minlength="1" maxlength="50" required/>
+            </span>
+            <span>
+                <label for="duration">Durata:</label>
+                <input type="number" min="1" max="240" step="1" id="duration" name="duration" value="%DURATA%" required/>
+            </span>
+            <span>
+                <label for="price">Prezzo:</label>
+                <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%" required/>
+            </span>
+            <span>
+                <label for="description">Descrizione:</label>
+                <textarea name="description" rows="10" cols="40" required>%DESCRIZIONE%</textarea>
+            </span>
+        </fieldset>    
+        <input type="submit" value="Salva" />
+    </form>
+</div>
+
+
 <script>
-    new RegExp(/^[0-9]{1,5}(,[0-9]{1,2})?$/);
+    new RegExp(/^[0-9]{1,5}(,[0-9]{1,2})?$/); //regex per controllare il prezzo
 </script>

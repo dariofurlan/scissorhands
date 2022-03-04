@@ -12,8 +12,8 @@ $meta_index = _meta_index(false);
 $pagina = str_replace('%META_INDEX%', $meta_index, $pagina);
 
 $path = array(
-    "Modifica Servizi" => "edit_servizi.php",
-    "Modifica Listino per la barba" => "edit_listino_barba.php",
+    "Modifica servizi" => "edit_servizi.php",
+    "Modifica listino per la barba" => "edit_listino_barba.php",
 );
 $header = _header($path);
 
