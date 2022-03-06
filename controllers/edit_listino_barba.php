@@ -17,6 +17,12 @@ $path = array(
 );
 $header = _header($path);
 
+if(empty($_SESSION["type"]) || !isset($_SESSION["type"]) ||$_SESSION["type"] != "OWNER")
+{
+	header("Location: servizi.php");
+	die();
+}
+
 $main = file_get_contents('../views/edit_listino_barba.html');
 
 

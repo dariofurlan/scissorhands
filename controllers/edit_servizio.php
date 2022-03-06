@@ -18,6 +18,12 @@ $header = _header($paths);
 
 $main = file_get_contents('../views/edit_servizio.html');
 
+if(empty($_SESSION["type"]) || !isset($_SESSION["type"]) ||$_SESSION["type"] != "OWNER")
+{
+	header("Location: servizi.php");
+	die();
+}
+
 if (!isset($_GET["id"]) || empty($_GET["id"]) || !preg_match('/^[0-9]+$/', $_GET["id"])) {
     header("Location: edit_servizi.php");
 	die();
