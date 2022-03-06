@@ -14,19 +14,35 @@
                 <input type="number" min="1" max="240" step="1" id="duration" name="duration" value="%DURATA%" required/>
             </span>
             <span>
-                <label for="price">Prezzo:</label>
-                <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%" required/>
+                <label for="price">Prezzo:</label> <span class="error" id="price-error"></span>
+                <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%" required onblur="onPrice();"/>
             </span>
             <span>
                 <label for="description">Descrizione:</label>
                 <textarea name="description" rows="10" cols="40" required>%DESCRIZIONE%</textarea>
             </span>
         </fieldset>    
-        <input type="submit" value="Salva" />
+        <input type="submit" value="Salva" id="Salva"/>
     </form>
 </div>
 
 
 <script>
-    new RegExp(/^[0-9]{1,5}(,[0-9]{1,2})?$/); //regex per controllare il prezzo
+    //new RegExp(/^[0-9]{1,5}(,[0-9]{1,2})?$/); //regex per controllare il prezzo
+	function onPrice()
+	{
+		let p = document.getElementById("price").value;
+		if(!/^[0-9]{1,5}(,[0-9]{1,2})?$/.test(p))
+		{
+			document.getElementById('Salva').setAttribute('aria-disabled', true);
+			document.getElementById('Salva').classList.add('disabled');
+			document.getElementById("price-error").innerText="Formato non valido.";
+		}
+		else
+		{
+			document.getElementById('Salva').setAttribute('aria-disabled', false);
+			document.getElementById('Salva').classList.remove('disabled');
+			document.getElementById("price-error").innerText="";
+		}
+	}
 </script>
