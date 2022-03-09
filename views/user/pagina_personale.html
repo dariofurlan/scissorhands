@@ -24,20 +24,20 @@
 			<legend>Cambio password</legend>
 			<span>
 				<label for="current_password">Password attuale</label>
-				<input placeholder="Inserisci la password attuale" name="current_password" id="current_password" type="password" required />
+				<input placeholder="Inserisci la password attuale" name="current_password" id="current_password" type="password" required="required" />
 			</span>
 
 			<div>
 				<label for="new_password">Nuova password</label>
 				<div id="pw-error" class="error"></div>
-				<input placeholder="Inserisci la nuova password" name="new_password" id="new_password" type="password" required oninput="onPw(event);"
+				<input placeholder="Inserisci la nuova password" name="new_password" id="new_password" type="password" required="required" oninput="onPw(event);"
 					onblur="aria_onPw(event);" />
 			</div>
 
 			<span>
 				<label for="confirm_new_password">Ripeti nuova password</label>
 				<span id="pwrep-error" class="error"></span>
-				<input placeholder="Ripeti la nuova password" name="confirm_new_password" id="confirm_new_password" type="password" required
+				<input placeholder="Ripeti la nuova password" name="confirm_new_password" id="confirm_new_password" type="password" required="required"
 					onkeyup="pwCheck();" onblur="aria_pwCheck();" />
 			</span>
 			<input type="submit" name="submit" value="Cambia password" id="changepw" onclick="preventSubmit(event);">

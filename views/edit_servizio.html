@@ -7,19 +7,19 @@
                 <input type="hidden" name="_id" value="%ID%" />
             <span>
                 <label for="name">Nome:</label> <span class="error" id="name-error"></span>
-                <input type="text" id="name" name="name" value="%NOME%" minlength="1" maxlength="50" required onblur="onName();"/>
+                <input type="text" id="name" name="name" value="%NOME%" minlength="1" maxlength="50" required="required" onblur="onName();"/>
             </span>
             <span>
                 <label for="duration">Durata (in minuti):</label>
-                <input type="number" min="1" max="240" step="1" id="duration" name="duration" value="%DURATA%" required/>
+                <input type="number" min="1" max="240" step="1" id="duration" name="duration" value="%DURATA%" required="required"/>
             </span>
             <span>
                 <label for="price">Prezzo (formato: euro,centesimi):</label> <span class="error" id="price-error"></span>
-                <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%" required onblur="onPrice();"/>
+                <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%" required="required" onblur="onPrice();"/>
             </span>
             <span>
                 <label for="description">Descrizione:</label> <span class="error" id="description-error"></span>
-                <textarea name="description" id="description" rows="10" cols="40" required onblur="onDescription();">%DESCRIZIONE%</textarea>
+                <textarea name="description" id="description" rows="10" cols="40" required="required" onblur="onDescription();">%DESCRIZIONE%</textarea>
             </span>
         </fieldset>    
         <input type="submit" value="Salva" id="Salva" onclick="preventSubmit(event)"/>

@@ -17,26 +17,26 @@
 				<legend>Dati personali:</legend>
 				<span>
 					<label for="name">Nome</label> <span class="error" id="name-error"></span>
-					<input placeholder="Inserisci il nome" %NOMEP% name="name" id="name" minlength="1" maxlength="50" onkeyup="sanitizeField('name');" onclick="clearIfError('name');" onblur="aria_sanitizeField('name');" required />
+					<input placeholder="Inserisci il nome" %NOMEP% name="name" id="name" minlength="1" maxlength="50" onkeyup="sanitizeField('name');" onclick="clearIfError('name');" onblur="aria_sanitizeField('name');" required="required" />
 				</span>
 				<span>
 					<label for="surname">Cognome</label> <span id="surname-error" class="error"></span>
-					<input placeholder="Inserisci il cognome" %COGNOMEP% name="surname" id="surname" minlength="1" maxlength="50" onkeyup="sanitizeField('surname');" onclick="clearIfError('surname');" onblur="aria_sanitizeField('surname');" required />
+					<input placeholder="Inserisci il cognome" %COGNOMEP% name="surname" id="surname" minlength="1" maxlength="50" onkeyup="sanitizeField('surname');" onclick="clearIfError('surname');" onblur="aria_sanitizeField('surname');" required="required" />
 				</span>
 			</fieldset>
 			<fieldset class="dati-registrazione">
 				<legend>Dati di accesso:</legend>
 				<span>
 					<label for="mail">Email</label> <span id="mail-error" class="error"></span>
-					<input placeholder="Inserisci l'email" %MAILP% oninput="onEmail(event);" onblur="aria_onEmail(event);" name="mail" id="mail" type="email" required/>
+					<input placeholder="Inserisci l'email" %MAILP% oninput="onEmail(event);" onblur="aria_onEmail(event);" name="mail" id="mail" type="email" required="required"/>
 				</span>
 				<div>
 					<label for="password">Password</label> <div id="pw-error" class="error"></div>
-					<input placeholder="Inserisci la password" name="password" id="password" type="password" oninput="onPw(); pwCheck();" onblur="aria_onPw(event);"  required />
+					<input placeholder="Inserisci la password" name="password" id="password" type="password" oninput="onPw(); pwCheck();" onblur="aria_onPw(event);"  required="required" />
 				</div>
 				<span>
 					<label for="password_rep">Ripeti la password</label> <span id="pwrep-error" class="error"></span>
-					<input placeholder="Ripeti la password" name="password_rep" id="password_rep" type="password" required oninput="pwCheck();" onblur="aria_pwCheck();"/>
+					<input placeholder="Ripeti la password" name="password_rep" id="password_rep" type="password" required="required" oninput="pwCheck();" onblur="aria_pwCheck();"/>
 				</span>
 			</fieldset>
 			<input type="submit" value="Registrati" id="Registrati" name="submit" onclick="preventSubmit(event);"/>
