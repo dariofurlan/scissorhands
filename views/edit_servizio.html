@@ -10,11 +10,11 @@
                 <input type="text" id="name" name="name" value="%NOME%" minlength="1" maxlength="50" required onblur="onName();"/>
             </span>
             <span>
-                <label for="duration">Durata:</label>
+                <label for="duration">Durata (in minuti):</label>
                 <input type="number" min="1" max="240" step="1" id="duration" name="duration" value="%DURATA%" required/>
             </span>
             <span>
-                <label for="price">Prezzo:</label> <span class="error" id="price-error"></span>
+                <label for="price">Prezzo (formato: euro,centesimi):</label> <span class="error" id="price-error"></span>
                 <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%" required onblur="onPrice();"/>
             </span>
             <span>
