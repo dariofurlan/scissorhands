@@ -6,8 +6,8 @@
             <legend>Dati sul servizio:</legend>
                 <input type="hidden" name="_id" value="%ID%" />
             <span>
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" value="%NOME%" minlength="1" maxlength="50" required/>
+                <label for="name">Nome:</label> <span class="error" id="name-error"></span>
+                <input type="text" id="name" name="name" value="%NOME%" minlength="1" maxlength="50" required onblur="onName();"/>
             </span>
             <span>
                 <label for="duration">Durata:</label>
@@ -18,11 +18,11 @@
                 <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%" required onblur="onPrice();"/>
             </span>
             <span>
-                <label for="description">Descrizione:</label>
-                <textarea name="description" rows="10" cols="40" required>%DESCRIZIONE%</textarea>
+                <label for="description">Descrizione:</label> <span class="error" id="description-error"></span>
+                <textarea name="description" id="description" rows="10" cols="40" required onblur="onDescription();">%DESCRIZIONE%</textarea>
             </span>
         </fieldset>    
-        <input type="submit" value="Salva" id="Salva"/>
+        <input type="submit" value="Salva" id="Salva" onclick="preventSubmit(event)"/>
     </form>
 </div>
 
@@ -34,15 +34,86 @@
 		let p = document.getElementById("price").value;
 		if(!/^[0-9]{1,5}(,[0-9]{1,2})?$/.test(p))
 		{
+			document.getElementById('price').setAttribute('aria-invalid', true);
+			document.getElementById('price').setAttribute('aria-describedby', 'price-error');
+
 			document.getElementById('Salva').setAttribute('aria-disabled', true);
 			document.getElementById('Salva').classList.add('disabled');
-			document.getElementById("price-error").innerText="Formato non valido.";
+			document.getElementById("price-error").innerText="Formato prezzo non valido. Formato corretto: interi,decimale.";
 		}
 		else
 		{
+			document.getElementById('price').setAttribute('aria-invalid', false);
+			document.getElementById('price').removeAttribute('aria-describedby');
+			
 			document.getElementById('Salva').setAttribute('aria-disabled', false);
 			document.getElementById('Salva').classList.remove('disabled');
 			document.getElementById("price-error").innerText="";
+		}
+	}
+
+	function onName()
+	{
+		let p = document.getElementById("name").value;
+		if(!/^[a-zA-Z ]+$/.test(p))
+		{
+			document.getElementById('name').setAttribute('aria-invalid', true);
+			document.getElementById('name').setAttribute('aria-describedby', 'name-error');
+
+			document.getElementById('Salva').setAttribute('aria-disabled', true);
+			document.getElementById('Salva').classList.add('disabled');
+			document.getElementById("name-error").innerText="Caratteri non validi presenti. Usa solo lettere.";	
+		}
+		else
+		{
+			document.getElementById('name').setAttribute('aria-invalid', false);
+			document.getElementById('name').removeAttribute('aria-describedby');
+
+			document.getElementById('Salva').setAttribute('aria-disabled', false);
+			document.getElementById('Salva').classList.remove('disabled');
+			document.getElementById("name-error").innerText="";
+		}
+	}
+
+	function onDescription()
+	{
+		let p = document.getElementById("description").value;
+		if(!/^[a-zA-Z \.\,]+$/.test(p))
+		{
+			document.getElementById('description').setAttribute('aria-invalid', true);
+			document.getElementById('description').setAttribute('aria-describedby', 'description-error');
+
+			document.getElementById('Salva').setAttribute('aria-disabled', true);
+			document.getElementById('Salva').classList.add('disabled');
+			document.getElementById("description-error").innerText="Caratteri non validi presenti. Usa solo lettere, punti e virgole.";	
+		}
+		else
+		{
+			document.getElementById('description').setAttribute('aria-invalid', false);
+			document.getElementById('description').removeAttribute('aria-describedby');
+
+			document.getElementById('Salva').setAttribute('aria-disabled', false);
+			document.getElementById('Salva').classList.remove('disabled');
+			document.getElementById("description-error").innerText="";
+		}
+	}
+
+	function preventSubmit(event)
+	{
+		arr = document.getElementsByTagName('input');
+		for(let a=0; a<arr.length; a++)
+		{
+			if(arr[a].getAttribute('aria-invalid')=="true")
+			{
+				event.preventDefault();
+				arr[a].focus();
+				break;
+			}
+		}
+		if(document.getElementById("description").getAttribute('aria-invalid') == "true")
+		{
+			event.preventDefault();
+			document.getElementById("description").focus();
 		}
 	}
 </script>
