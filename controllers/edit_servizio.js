@@ -25,7 +25,7 @@ function onPrice()
 function onName()
 {
 	let p = document.getElementById("name").value;
-	if(!/^[a-zA-Z ]+$/.test(p))
+	if(!/^[a-zA-Z áéíóúàèìòù]+[\']*$/.test(p))
 	{
 		document.getElementById('name').setAttribute('aria-invalid', true);
 		document.getElementById('name').setAttribute('aria-describedby', 'name-error');
@@ -48,7 +48,7 @@ function onName()
 function onDescription()
 {
 	let p = document.getElementById("description").value;
-	if(!/^[a-zA-Z \.\,]+$/.test(p))
+	if(!/^[a-zA-Z \.\,áéíóúàèìòù]+[\']*$/.test(p))
 	{
 		document.getElementById('description').setAttribute('aria-invalid', true);
 		document.getElementById('description').setAttribute('aria-describedby', 'description-error');
