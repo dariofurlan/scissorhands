@@ -19,7 +19,7 @@
             </span>
             <span>
                 <label for="description">Descrizione:</label> <span class="error" id="description-error"></span>
-                <textarea name="description" id="description" rows="10" cols="40" required onblur="onDescription();">%DESCRIZIONE%</textarea>
+                <textarea name="description" id="description" rows="10" cols="40" maxlength="150"  required onblur="onDescription();">%DESCRIZIONE%</textarea>
             </span>
         </fieldset>    
         <input type="submit" value="Salva" id="Salva" onclick="preventSubmit(event)"/>
