@@ -5,6 +5,7 @@ require_once 'components/edit_servizio.php';
 require_once '../services/public/service.php';
 require_once '../services/staff/service.php';
 require_once 'components/meta_index.php';
+require_once "components/listino_servizi.php";
 
 $pagina = page('Modifica Listino capelli - Scissorhands');
 
@@ -37,12 +38,9 @@ if (isset($_POST) && !empty($_POST) && isset($_POST["action"]) && $_POST["action
 
 $services = PublicServiceService::getAllCapelli();
 
-$listaServizi = "";
-foreach($services as $service) {      
-    $listaServizi .= edit_servizio($service["_id"], $service["type"], $service["name"], $service["price"], $service["duration"], $service["description"]);  
-}
+$listinoServizi = listino_servizi($services);
 
-$main = str_replace('%LISTA_SERVIZI%' , $listaServizi, $main);
+$main = str_replace('%LISTINO_SERVIZI%' , $listinoServizi, $main);
 
 $pagina = str_replace('%HEADER%', $header, $pagina);
 $pagina = str_replace('%MAIN%', $main, $pagina);

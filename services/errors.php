@@ -11,3 +11,9 @@ class ReservationSlotsError extends Error {
         parent::__construct("Orario Prenotazione Non Valido");
     }
 }
+
+class CantDeleteServiceError extends Error {
+    public function __construct() {
+        parent::__construct("Impossibile eliminare un servizio per il quale son presenti prenotazioni");
+    }
+}

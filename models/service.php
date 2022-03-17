@@ -45,14 +45,19 @@ class Service extends DBHelper {
         
         $stmt->bind_param("sdisi", $name, $price, $duration, $desc, $id);
 
-        if (!$stmt->execute()){
-            echo "Error: ". $stmt->error;
+        if (!$stmt->execute()) {
+            echo "Error: " . $stmt->error;
         };
     }
 
     public function delete($id) {
         $stmt = $this->prepare("DELETE FROM service WHERE _id = ?");
         $stmt->bind_param("i",  $id);
+        try {
         $stmt->execute();
+        } catch (Exception $err) {
+            if ($stmt->errno === 1451) throw new CantDeleteServiceError();
+            else throw $err;
     }
+}
 }
