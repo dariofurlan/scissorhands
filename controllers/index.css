@@ -377,6 +377,10 @@ div.form-block em>span#reg-complete
     margin: 0 auto 1em;
 }
 
+p.avviso{
+    text-align: center;
+}
+
 form#registrazione-form, 
 form#login-form, 
 form#profile,
@@ -508,8 +512,7 @@ input[type=submit]{
     margin: 0.25em 0.125em;
     cursor: pointer;
     border-radius: 0.4em;
-    float: right;
-  }
+}
 
 input[type=submit]:hover{ 
       background-color: black;      

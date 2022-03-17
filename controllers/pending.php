@@ -26,7 +26,7 @@ $pagina = page('Prenotazioni - Scissorhands');
 $meta_index = _meta_index(false);
 $pagina = str_replace('%META_INDEX%', $meta_index, $pagina);
 
-$header = _header(array("Prenotazioni" => "staff_prenotazioni.php", "In Attesa di Conferma" => "pending.php"));
+$header = _header(array("Prenotazioni" => "staff_prenotazioni.php", "In attesa di conferma" => "pending.php"));
 $main = file_get_contents( __DIR__ . '/../views/staff/pending.html');
 
 require_once __DIR__ . '/../services/staff/book.php';

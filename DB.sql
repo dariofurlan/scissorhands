@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `dfurlan`;
-USE `dfurlan`;
+CREATE DATABASE IF NOT EXISTS `scissorhands`;
+USE `scissorhands`;
 
 DROP TABLE IF EXISTS reservation CASCADE;
 DROP TABLE IF EXISTS service CASCADE;
