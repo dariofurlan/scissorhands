@@ -9,7 +9,7 @@ $pagina = page('Prenota - Scissorhands');
 $meta_index = _meta_index(false);
 $pagina = str_replace('%META_INDEX%', $meta_index, $pagina);
 
-$header = _header(array("Prenotazioni" => "user_prenotazioni.php", "Nuova Prenotazione" => "prenota.php"));
+$header = _header(array("Prenotazioni" => "user_prenotazioni.php", "Nuova prenotazione" => "prenota.php"));
 
 $main = file_get_contents('../views/user/prenota.html');
 

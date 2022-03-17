@@ -27,7 +27,7 @@ $main = file_get_contents('../views/edit_listino_barba.html');
 
 
 if (isset($_POST) && !empty($_POST) && isset($_POST["action"]) && $_POST["action"] === "CREATE") {
-    StaffServiceService::createBarba("Nuovo Servizio Barba", 0.0, 0, "");
+    StaffServiceService::createBarba("Nuovo servizio barba", 0.0, 60, "");
 }
 
 if (isset($_POST) && !empty($_POST) && isset($_POST["action"]) && $_POST["action"] === "DELETE" && isset($_POST["servizio"]) && preg_match('/^[0-9]+$/', $_POST["servizio"])) {

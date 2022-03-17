@@ -121,7 +121,7 @@ if (!empty($selected_service) && !empty($selected_staff) && !empty($selected_day
 	die();
 }
 
-$header = _header(array("Prenotazioni" => "prenotazioni.php",  "Nuova Prenotazione" => $backlink, "Orario" => "conferma.php"));
+$header = _header(array("Prenotazioni" => "prenotazioni.php",  "Nuova prenotazione" => $backlink, "Orario" => "conferma.php"));
 
 $main = str_replace("%CONFIRM_FORM%", $confirm_form, $main);
 $main = str_replace("%SELECTED_DAY_EXT%", $selected_day_ext, $main);

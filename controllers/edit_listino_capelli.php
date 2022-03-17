@@ -28,7 +28,7 @@ $main = file_get_contents('../views/edit_listino_capelli.html');
 
 
 if (isset($_POST) && !empty($_POST) && isset($_POST["action"]) && $_POST["action"] === "CREATE") {
-    StaffServiceService::createCapelli("Nuovo Servizio Capelli", 0.0, 0, "");
+    StaffServiceService::createCapelli("Nuovo servizio capelli", 0.0, 60, "");
 }
 
 if (isset($_POST) && !empty($_POST) && isset($_POST["action"]) && $_POST["action"] === "DELETE" && isset($_POST["servizio"]) && preg_match('/^[0-9]+$/', $_POST["servizio"])) {
