@@ -4,6 +4,8 @@ require_once 'components/header.php';
 require_once 'components/servizio.php';
 require_once '../services/public/service.php';
 require_once 'components/meta_index.php';
+require_once "components/listino_servizi.php";
+
 
 $pagina = page('Listino barba - Scissorhands');
 
@@ -18,23 +20,11 @@ $header = _header($path);
 
 $main = file_get_contents('../views/listino_barba.html');
 
-function listaServizi() {
-    $services = PublicServiceService::getAll();
-    if (!$services)
-        $out = "<p>PROBLEMA CON DATABASE!</p>"; 
-    else{
-        $out = "";
-    
-        foreach($services as $service){      
-            if ($service["type"] === 'barba')
-                $out .= _servizio($service["name"],$service["price"],$service["duration"],$service["description"]);  
-        }    
-    }    
-    return $out;
-}
+$services = PublicServiceService::getAllBarba();
 
-$listaServizi = listaServizi();
-$main = str_replace('%LISTA_SERVIZI%' , $listaServizi, $main);
+$listinoServizi = listino_servizi($services);
+
+$main = str_replace('%LISTINO_SERVIZI%' , $listinoServizi, $main);
 
 $pagina = str_replace('%DESCRIPTION%', "Listino prezzi dei servizi per la barba di Scissorhands." ,$pagina);
 $pagina = str_replace('%KEYWORDS%', "listino, prezzi, servizi, barba, rasatura, modellatura, regolazione barba, trattamenti, barbiere, scissorhands", $pagina);

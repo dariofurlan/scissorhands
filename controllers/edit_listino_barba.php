@@ -5,7 +5,7 @@ require_once 'components/edit_servizio.php';
 require_once '../services/public/service.php';
 require_once '../services/staff/service.php';
 require_once 'components/meta_index.php';
-require_once "components/listino_servizi.php";
+require_once "components/listino_servizi_edit.php";
 
 $pagina = page('Listino barba - Scissorhands');
 
@@ -36,7 +36,7 @@ if (isset($_POST) && !empty($_POST) && isset($_POST["action"]) && $_POST["action
 
 $services = PublicServiceService::getAllBarba();
 
-$listinoServizi = listino_servizi($services);
+$listinoServizi = listino_servizi_edit($services);
 
 $main = str_replace('%LISTINO_SERVIZI%' , $listinoServizi, $main);
 

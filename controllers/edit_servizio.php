@@ -10,16 +10,12 @@ $pagina = page('Modifica servizio - Scissorhands');
 $meta_index = _meta_index(false);
 $pagina = str_replace('%META_INDEX%', $meta_index, $pagina);
 
-$paths = array(
-    "Modifica servizi" => "edit_servizi.php",
-    "Modifica servizio" => "edit_servizio.php"
-);
-$header = _header($paths);
-
 $main = file_get_contents('../views/edit_servizio.html');
 
-if(empty($_SESSION["type"]) || !isset($_SESSION["type"]) ||$_SESSION["type"] != "OWNER")
-{
+if(session_status() !== PHP_SESSION_ACTIVE)
+    session_start();
+
+if (empty($_SESSION["type"]) || !isset($_SESSION["type"]) || $_SESSION["type"] != "OWNER") {
 	header("Location: servizi.php");
 	die();
 }
@@ -47,7 +43,7 @@ function update() {
     if (isset($_POST["_id"]) && preg_match('/^[0-9]+$/', $_POST["_id"])) {
         $book["_id"] = $_POST["_id"];
     } else {$err = "_id"; return $err;}
-    if (isset($_POST["name"]) && preg_match('/^[a-zA-Z áéíóúàèìòù]+[\']*$/', $_POST["name"])) {
+    if (isset($_POST["name"]) && preg_match('/^[a-zA-Z \.\,áéíóúàèìòù\']+$/', $_POST["name"])) {
         $book["name"] = $_POST["name"];
     } else {$err = "Nome del servizio non valido"; return $err; $currentName = $_POST["name"];}
     if (isset($_POST["duration"]) && preg_match('/^[0-9]+$/', $_POST["duration"])) {
@@ -56,7 +52,7 @@ function update() {
     if (isset($_POST["price"]) && preg_match('/^[0-9]{1,5}(,[0-9]{1,2})?$/', $_POST["price"])) {
         $book["price"] = $_POST["price"];
     } else {$err = "Formato del prezzo non valido (servono la virgola)."; return $err; $currentPrice = $_POST["price"];}
-    if (isset($_POST["description"]) && preg_match('/^[a-zA-Z \.\,áéíóúàèìòù]+[\']*$/', $_POST["description"])) {
+    if (isset($_POST["description"]) && preg_match('/^[a-zA-Z \.\,\;áéíóúàèìòù\']+$/', $_POST["description"])) {
         $book["description"] = $_POST["description"];
     } else {$err = "Caratteri non validi nella descrizione"; return $err; $currentDescription = $_POST["description"];}
 
@@ -90,6 +86,15 @@ $main = str_replace('%PREZZO%', number_format($service["price"], 2, ",", " "), $
 $main = str_replace('%DURATA%', floor($service["duration"] / 60), $main);
 $main = str_replace('%DESCRIZIONE%', $service["description"], $main);
 
+$back_name = $service["type"] === "capelli"? "Modifica listino per i capelli": "Modifica listino per la barba";
+$back_link = $service["type"] === "capelli"? "edit_listino_capelli.php": "edit_listino_barba.php";
+
+$paths = array(
+    "Modifica servizi" => "edit_servizi.php",
+    $back_name => $back_link,
+    "Modifica servizio" => "edit_servizio.php",
+);
+$header = _header($paths);
 $pagina = str_replace('%HEADER%', $header, $pagina);
 $pagina = str_replace('%MAIN%', $main, $pagina);
 
