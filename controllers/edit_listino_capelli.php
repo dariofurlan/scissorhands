@@ -7,7 +7,7 @@ require_once '../services/staff/service.php';
 require_once 'components/meta_index.php';
 require_once "components/listino_servizi_edit.php";
 
-$pagina = page('Modifica Listino capelli - Scissorhands');
+$pagina = page('Modifica listino capelli - Scissorhands');
 
 $meta_index = _meta_index(false);
 $pagina = str_replace('%META_INDEX%', $meta_index, $pagina);
@@ -28,7 +28,7 @@ $main = file_get_contents('../views/edit_listino_capelli.html');
 
 
 if (isset($_POST) && !empty($_POST) && isset($_POST["action"]) && $_POST["action"] === "CREATE") {
-    StaffServiceService::createCapelli("Nuovo servizio capelli", 0.0, 60, "");
+    StaffServiceService::createCapelli("Nuovo servizio capelli", 0.0, 60, "Descrizione.");
 }
 
 if (isset($_POST) && !empty($_POST) && isset($_POST["action"]) && $_POST["action"] === "DELETE" && isset($_POST["servizio"]) && preg_match('/^[0-9]+$/', $_POST["servizio"])) {
