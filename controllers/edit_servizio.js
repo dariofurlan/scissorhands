@@ -1,4 +1,3 @@
-//new RegExp(/^[0-9]{1,5}(,[0-9]{1,2})?$/); //regex per controllare il prezzo
 function onPrice()
 {
 	let p = document.getElementById("price").value;

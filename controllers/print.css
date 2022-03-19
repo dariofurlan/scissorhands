@@ -40,7 +40,8 @@ fieldset.dati-registrazione span.error,
 fieldset.dati-registrazione div.error,
 fieldset.dati-personali span.error,
 fieldset.dati-cambio-password span.error,
-fieldset.dati-cambio-password div.error{
+fieldset.dati-cambio-password div.error,
+fieldset.dati-servizio span.error{
 	color : red;
 }
 
