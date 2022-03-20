@@ -47,7 +47,7 @@ function onName()
 function onDescription()
 {
 	let p = document.getElementById("description").value;
-	if(!/^[a-zA-Z \.\,;áéíóúàèìòù\']+$/.test(p))
+	if(!/^[a-zA-Z \.\,\;áéíóúàèìòù\']+$/.test(p))
 	{
 		document.getElementById('description').setAttribute('aria-invalid', true);
 		document.getElementById('description').setAttribute('aria-describedby', 'description-error');
