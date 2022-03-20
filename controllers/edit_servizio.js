@@ -24,7 +24,7 @@ function onPrice()
 function onName()
 {
 	let p = document.getElementById("name").value;
-	if(!/^[a-zA-Z áéíóúàèìòù]+[\']*$/.test(p))
+	if(!/^[a-zA-Z áéíóúàèìòù\']+$/.test(p))
 	{
 		document.getElementById('name').setAttribute('aria-invalid', true);
 		document.getElementById('name').setAttribute('aria-describedby', 'name-error');

@@ -43,7 +43,7 @@ function update() {
     if (isset($_POST["_id"]) && preg_match('/^[0-9]+$/', $_POST["_id"])) {
         $book["_id"] = $_POST["_id"];
     } else {$err = "_id"; return $err;}
-    if (isset($_POST["name"]) && preg_match('/^[a-zA-Z \.\,áéíóúàèìòù\']+$/', $_POST["name"])) {
+    if (isset($_POST["name"]) && preg_match('/^[a-zA-Z áéíóúàèìòù\']+$/', $_POST["name"])) {
         $book["name"] = $_POST["name"];
     } else {$err = "Nome del servizio non valido"; return $err; $currentName = $_POST["name"];}
     if (isset($_POST["duration"]) && preg_match('/^[0-9]+$/', $_POST["duration"])) {
