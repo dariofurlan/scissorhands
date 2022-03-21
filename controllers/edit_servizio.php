@@ -51,7 +51,7 @@ function update() {
     } else {$err = "Formato durata non valido"; return $err; $currentDuration = $_POST["duration"];}
     if (isset($_POST["price"]) && preg_match('/^[0-9]{1,5}(,[0-9]{1,2})?$/', $_POST["price"])) {
         $book["price"] = $_POST["price"];
-    } else {$err = "Formato del prezzo non valido (servono la virgola)."; return $err; $currentPrice = $_POST["price"];}
+    } else {$err = "Formato del prezzo non valido (serve la virgola)."; return $err; $currentPrice = $_POST["price"];}
     if (isset($_POST["description"]) && preg_match('/^[a-zA-Z \.\,\;áéíóúàèìòù\']+$/', $_POST["description"])) {
         $book["description"] = $_POST["description"];
     } else {$err = "Caratteri non validi nella descrizione"; return $err; $currentDescription = $_POST["description"];}
