@@ -1,9 +1,10 @@
 <section class="reservations">
     <h2>Modifica orari di apertura</h2>
-    <p>Selezionare i giorni di cui si vuole modificare l'orario di apertura. I giorni non selezionati saranno quelli di chiusura.</p>
+    <p>Selezionare i giorni di cui si vuole modificare l'orario di apertura. I giorni non selezionati saranno quelli di
+        chiusura.</p>
     %MESSAGGIO%
-	<form action="orari.php" method="POST">
-		<fieldset id="modifica-giorni">
+    <form action="orari.php" method="post">
+        <fieldset id="modifica-giorni">
             <legend>Giorni di apertura</legend>
             <div>
                 <input type="checkbox" id="day-0" name="day-0" %DAY_0% />
@@ -36,12 +37,14 @@
         </fieldset>
         <fieldset id="modifica-ora" class="form-block">
             <legend>Modifica ora</legend>
-			<span id="orario-error" class="error"></span>
+            <span id="orario-error" class="error"></span>
             <label for="open_at">Apertura</label>
-            <input min="0" max="23" step="1" type="number" id="open_at" name="open_at" value="%OPEN_HOUR%" required />
+            <input min="0" max="23" step="1" type="number" id="open_at" name="open_at" value="%OPEN_HOUR%"
+                required="required" />
 
             <label for="close_at">Chiusura</label>
-            <input min="0" max="23" step="1" type="number" id="close_at" name="close_at" value="%CLOSE_HOUR%" required/>
+            <input min="0" max="23" step="1" type="number" id="close_at" name="close_at" value="%CLOSE_HOUR%"
+                required="required" />
         </fieldset>
         <input type="submit" id="change" value="Salva modifiche" />
     </form>
