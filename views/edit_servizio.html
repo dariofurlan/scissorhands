@@ -1,28 +1,33 @@
 <h2>Modifica servizio</h2>
 <div class="form-block">
-	%MESSAGGIO%
-    <form id="servizio-form" action="edit_servizio.php?id=%ID%" method="POST">
+    %MESSAGGIO%
+    <form id="servizio-form" action="edit_servizio.php?id=%ID%" method="post">
         <fieldset class="dati-servizio">
             <legend>Dati sul servizio:</legend>
-                <input type="hidden" name="_id" value="%ID%" />
+            <input type="hidden" name="_id" value="%ID%" />
             <span>
                 <label for="name">Nome:</label> <span class="error" id="name-error"></span>
-                <input type="text" id="name" name="name" value="%NOME%" minlength="1" maxlength="50" required onkeyup="onName();"/>
+                <input type="text" id="name" name="name" value="%NOME%" minlength="1" maxlength="50" required="required"
+                    onkeyup="onName();" />
             </span>
             <span>
                 <label for="duration">Durata (in minuti):</label>
-                <input type="number" min="1" max="240" step="1" id="duration" name="duration" value="%DURATA%" required/>
+                <input type="number" min="1" max="240" step="1" id="duration" name="duration" value="%DURATA%"
+                    required="required" />
             </span>
             <span>
-                <label for="price">Prezzo (formato: euro,centesimi):</label> <span class="error" id="price-error"></span>
-                <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%" required onkeyup="onPrice();"/>
+                <label for="price">Prezzo (formato: euro,centesimi):</label> <span class="error"
+                    id="price-error"></span>
+                <input type="text" id="price" name="price" minlength="4" maxlength="8" value="%PREZZO%"
+                    required="required" onkeyup="onPrice();" />
             </span>
             <span>
                 <label for="description">Descrizione:</label> <span class="error" id="description-error"></span>
-                <textarea name="description" id="description" rows="10" cols="40" maxlength="150"  required onkeyup="onDescription();">%DESCRIZIONE%</textarea>
+                <textarea name="description" id="description" rows="10" cols="40" maxlength="150" required="required"
+                    onkeyup="onDescription();">%DESCRIZIONE%</textarea>
             </span>
-        </fieldset>    
-        <input type="submit" value="Salva" id="Salva" onclick="preventSubmit(event)"/>
+        </fieldset>
+        <input type="submit" value="Salva" id="Salva" onclick="preventSubmit(event)" />
     </form>
 </div>
 

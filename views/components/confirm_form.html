@@ -1,4 +1,4 @@
-<form method="POST" action="user_prenotazioni.php" class="booking-form" id="confirm-book">
+<form method="post" action="user_prenotazioni.php" class="booking-form" id="confirm-book">
     <input type="hidden" name="action" value="create" />
     <input type="number" name="staff" value="%SELECTED_STAFF%" hidden />
     <input type="number" name="service" value="%SELECTED_SERVICE%" hidden />
@@ -6,6 +6,6 @@
         <legend>Scelta orario</legend>
         %RADIOS_SLOT%
     </fieldset>
-    <input type="submit" value="Conferma" id="conferma" aria-disabled="true"/>
+    <input type="submit" value="Conferma" id="conferma" aria-disabled="true" />
     <script src="./conferma.js"></script>
 </form>
