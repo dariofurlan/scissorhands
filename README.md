@@ -1,75 +1,44 @@
 # 💈Barber Scissorhands
+![image](https://github.com/BackToFrancesco/scissorhands/assets/76614857/ffae34d4-1e68-4cce-b641-c57458515d3c)
 
-## Dev Server
-
-per fare girare un dev server
-```bash
-php -S localhost:8000 -t controllers/
-```
-
-###
-
-```php
-$template_pagina = file_get_contents('../view/index.html');
-$pagina = str_replace('%TITOLO%', "Home" , $template_pagina);
-
-```
-
-###
+This project was developed as final project for Web Technologies 2021/2022 held by Prof. Ombretta Gaggi in Univeristy of Padova.
 
 
-```typescript
+## Authors
+[Francesco Bacchin](https://github.com/backtofrancesco), University of Padua, Italy
 
-function getOrariFrom(timeUT: number, deltaTaglio: number, parrucchiere: idparruchiere) {
-    const { 
-        open_at,
-        closes_at,
-        days 
-    } = getAzienda();
+[Matteo Bellato](https://github.com/matt8227), University of Padua, Italy
 
-    // giorno di apertura
-    const dayOfWeek = getDayOfWeek(time);
-    if (days[dayOfWeek]) // accept
-    else // reject
+[Leila Dardouri](https://github.com/leidard), University of Padua, Italy
 
-    // reintra negli orari validi
-    const nSecdainiziogiornata = timeUT % 86400;
-    if (open_at < nSecdainiziogiornata < closes_at) // accept
-    else // reject
+[Dario Furlan](https://github.com/dariofurlan), University of Padua, Italy
 
-    
-    const prenotazioni = getPrenotazioniFrom(time, parrucchiere);
+## Introduction
+This project originated from the idea of creating an online booking service for a barber shop in Padova, focusing particularly on accessibility and usability. The website is designed to be easily navigable for both regular and new customers, with special attention to youths and adults up to the age of fifty.
 
-    const fasce = [];
-    let lastTime = open_at;
-    foreach(prenotazione in prenotazioni) {
-        let nP = Math.floor((prenotazione.start - lastTime) / deltaTaglio)
+## Features
+- **Online Booking:** Allows customers to book appointments online in a simple and intuitive way.
+- **Staff and Services Information:** Dedicated page for staff with photos and biographies, as well as detailed descriptions of the services offered.
+- **Gallery:** Displays previous works and the shop's environment through selected images.
+- **Contact and Map:** Provides contact information, opening hours, and a static map for the shop's location.
+- **Account Management:** Enables customers to register, access their profile, and view their booking history.
 
-        for (let i = 0; i < nP; i++, lastT += deltaTaglio) fasce.append({
-            start: lastT,
-            duration: deltaTagli,
-            end: lastT + deltaTaglio,
-        })
-        // POST = lastT === fasce[fasce.length-1].end;
+## Technologies Used
+- **Frontend:** HTML5, CSS3 (with a Mobile First approach), and JavaScript for form validation and accessibility enhancements.
+- **Backend:** PHP, with an architecture based on models, services, and controllers, and MySQL for database management.
+- **Accessibility:** Focused on a wide range of users, with attention to text readability, simplified navigation, and compatibility with screen readers.
 
-        lastTime = prenotazione.end;
-    }
-}
+## Installation and Configuration
+1. Clone the repository:
+   ```
+   git clone [repository URL]
+   ```
+2. Configure the `helper.php` file in the `models` path for database connection.
+3. Import the provided SQL database.
+4. Run the dev server
+    ```bash
+    php -S localhost:8000 -t controllers/
+    ```
 
-```
-
-
-```javascript
-
-window.onload = function() {
-    let el = document.getById('prenotazion-barbiere');
-    let el2 = document.getElementById('prenotazion-taglio');
-
-
-    el.onclick = function() {
-        this.setAttribute('aria-hidden', 'true');
-        el2.setAttribute('aria-hidden', 'false');
-    }
-}
-
-```
+## Testing
+The site has been extensively tested on various browsers (Chrome, Edge, Mozilla Firefox, Opera, and Safari) and validated with tools such as W3C HTML Validator and W3C CSS Validator. Accessibility was verified using the WAVE tool and NVDA screen reader.
